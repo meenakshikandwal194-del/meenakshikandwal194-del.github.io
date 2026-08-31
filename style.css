@@ -1,1 +1,269 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+    color: #1f2937;
+    background: #ffffff;
+}
+
+nav {
+    background: #0f172a;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.hero {
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    padding: 80px 10%;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    color: white;
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.small-title {
+    letter-spacing: 3px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hero h1 {
+    font-size: 55px;
+    margin-bottom: 8px;
+}
+
+.hero h2 {
+    font-size: 28px;
+    font-weight: normal;
+    margin-bottom: 25px;
+}
+
+.hero p {
+    font-size: 18px;
+    max-width: 750px;
+}
+
+.location {
+    margin-top: 15px;
+    font-size: 15px !important;
+}
+
+.buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    background: white;
+    color: #1e3a8a;
+    padding: 12px 22px;
+    border-radius: 7px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.secondary {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+section {
+    padding: 75px 10%;
+}
+
+section h2 {
+    font-size: 34px;
+    margin-bottom: 25px;
+    color: #0f172a;
+}
+
+section p {
+    margin-bottom: 15px;
+    max-width: 950px;
+}
+
+.grey-section {
+    background: #f8fafc;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.skill-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+}
+
+.skill-card h3 {
+    margin-bottom: 12px;
+    color: #1e40af;
+}
+
+.skill-card p {
+    margin-bottom: 4px;
+}
+
+.cert-card {
+    background: #f8fafc;
+    border-left: 5px solid #2563eb;
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+.cert-card h3 {
+    margin-bottom: 8px;
+}
+
+.section-intro {
+    margin-bottom: 30px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    background: white;
+    padding: 28px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.project-card h3 {
+    margin-bottom: 15px;
+    color: #0f172a;
+}
+
+.project-card a {
+    color: #2563eb;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.tech {
+    font-size: 14px;
+    font-weight: bold;
+    color: #475569;
+}
+
+.career {
+    background: #0f172a;
+    color: white;
+}
+
+.career h2 {
+    color: white;
+}
+
+.roles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.roles span {
+    border: 1px solid #94a3b8;
+    padding: 8px 14px;
+    border-radius: 20px;
+}
+
+#contact a {
+    color: #2563eb;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    background: #020617;
+    color: #cbd5e1;
+    padding: 25px;
+}
+
+@media (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        padding: 60px 7%;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero h2 {
+        font-size: 22px;
+    }
+
+    section {
+        padding: 55px 7%;
+    }
+
+}
