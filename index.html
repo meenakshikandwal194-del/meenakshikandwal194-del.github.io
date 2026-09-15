@@ -1,536 +1,637 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Meenakshi Kandwal - Azure Cloud and DevOps portfolio." />
+  <title>Meenakshi Kandwal | Azure Cloud & DevOps</title>
 
-    <title>Meenakshi Kandwal | Cloud & DevOps Portfolio</title>
+  <style>
+    :root {
+      --bg: #07111f;
+      --surface: #0d1b2a;
+      --surface-2: #12263a;
+      --text: #eef6ff;
+      --muted: #a9bdd0;
+      --accent: #39c6e6;
+      --accent-2: #7dd3fc;
+      --line: rgba(255,255,255,0.10);
+      --shadow: 0 18px 45px rgba(0,0,0,0.25);
+      --radius: 18px;
+      --max: 1120px;
+    }
 
-    <meta name="description"
-          content="Portfolio of Meenakshi Kandwal, an Azure Cloud and DevOps professional with experience in Azure administration, systems support, CI/CD, Docker, Kubernetes, Terraform and Jenkins.">
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-    <link rel="stylesheet" href="style.css">
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(57,198,230,0.12), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
+
+    .container {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(14px);
+      background: rgba(7,17,31,0.84);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      color: var(--accent-2);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.94rem;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    header {
+      padding: 92px 0 72px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.45fr 0.9fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.78rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    h1, h2, h3 { line-height: 1.2; margin-top: 0; }
+    h1 {
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      margin-bottom: 18px;
+      letter-spacing: -0.04em;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+      color: var(--accent-2);
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.04rem;
+      max-width: 760px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 750;
+      border: 1px solid var(--line);
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #05111a;
+      border-color: transparent;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .hero-card {
+      background: linear-gradient(145deg, rgba(18,38,58,0.96), rgba(9,25,40,0.96));
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h3 { margin-bottom: 16px; }
+
+    .quick-list {
+      display: grid;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .quick-list strong { color: var(--text); }
+
+    section { padding: 68px 0; }
+
+    .section-heading {
+      margin-bottom: 28px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      margin-bottom: 8px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      background: rgba(13,27,42,0.88);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.14);
+    }
+
+    .card h3 { margin-bottom: 8px; }
+
+    .meta {
+      color: var(--accent-2);
+      font-weight: 700;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+
+    .card p, .card li { color: var(--muted); }
+
+    ul {
+      padding-left: 20px;
+      margin-bottom: 0;
+    }
+
+    li + li { margin-top: 7px; }
+
+    .timeline {
+      display: grid;
+      gap: 22px;
+    }
+
+    .role {
+      position: relative;
+      padding-left: 22px;
+      border-left: 2px solid rgba(57,198,230,0.5);
+    }
+
+    .role::before {
+      content: "";
+      position: absolute;
+      left: -7px;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 0 5px rgba(57,198,230,0.12);
+    }
+
+    .role h3 { margin-bottom: 4px; }
+    .role .company { color: var(--text); font-weight: 650; }
+    .role .date { color: var(--accent-2); margin: 4px 0 12px; font-size: 0.92rem; }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: rgba(57,198,230,0.08);
+      border: 1px solid rgba(57,198,230,0.18);
+      color: #c9f5ff;
+      font-size: 0.86rem;
+      font-weight: 650;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .contact-item {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid var(--line);
+      padding: 16px;
+      border-radius: 14px;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.82rem;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 28px 0 42px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 820px) {
+      .hero, .grid-2, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      header { padding-top: 64px; }
+    }
+
+    @media (max-width: 520px) {
+      .nav-links { gap: 12px; }
+      .card, .hero-card { padding: 20px; }
+    }
+  </style>
 </head>
 
 <body>
+  <nav>
+    <div class="container nav-inner">
+      <a class="brand" href="#top">Meenakshi Kandwal</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="MeenakshiJuniorDevopsEngineerCV.pdf" target="_blank" rel="noopener">Resume</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="logo">MK</div>
+  <header id="top">
+    <div class="container hero">
+      <div>
+        <div class="eyebrow">Azure Cloud • DevOps • Infrastructure</div>
+        <h1>Meenakshi Kandwal</h1>
+        <h2>Azure Cloud & DevOps Professional</h2>
+        <p>
+          Azure Cloud and DevOps professional with experience in Azure administration,
+          systems support and hands-on DevOps projects. Microsoft Certified: Azure
+          Fundamentals (AZ-900), with practical experience across Azure, Azure DevOps,
+          CI/CD pipelines, Docker, Kubernetes (AKS), Terraform, Jenkins, Git, Linux and
+          Infrastructure as Code. Experienced in building automated pipelines,
+          containerising applications, deploying workloads to Azure App Service and AKS,
+          integrating security and code-quality tools, and troubleshooting cloud and
+          deployment issues.
+        </p>
 
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#certifications">Certification</a>
-            <a href="#projects">Projects</a>
-            <a href="#experience">Experience</a>
-            <a href="#contact">Contact</a>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-secondary" href="https://github.com/meenakshikandwal194-del" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/meenakshi-250149420/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-secondary" href="MeenakshiJuniorDevopsEngineerCV.pdf" target="_blank" rel="noopener">View Resume</a>
         </div>
-    </nav>
+      </div>
 
-
-    <!-- Hero Section -->
-    <header class="hero">
-
-        <div class="hero-content">
-
-            <p class="small-title">HELLO, I'M</p>
-
-            <h1>Meenakshi Kandwal</h1>
-
-            <h2>Azure Cloud & DevOps Professional</h2>
-
-            <p>
-                Microsoft Certified: Azure Fundamentals (AZ-900) with professional
-                experience in Azure cloud administration and systems support, together
-                with hands-on DevOps project experience using Azure DevOps, CI/CD,
-                Docker, Kubernetes, Terraform, Jenkins, Git and Linux.
-            </p>
-
-            <p class="location">
-                Based in the UK | Open to opportunities across the UK | Willing to relocate
-            </p>
-
-            <div class="buttons">
-
-                <a href="https://www.linkedin.com/in/meenakshi-250149420/"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="btn">
-                    LinkedIn
-                </a>
-
-                <a href="https://github.com/meenakshikandwal194-del"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="btn">
-                    GitHub
-                </a>
-
-                <a href="MeenakshiJuniorDevopsEngineerCV.pdf"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="btn secondary">
-                    View Resume
-                </a>
-
-            </div>
-
+      <aside class="hero-card">
+        <h3>Profile Snapshot</h3>
+        <div class="quick-list">
+          <div><strong>Current:</strong> Azure Cloud Administrator</div>
+          <div><strong>Certification:</strong> Microsoft Certified: Azure Fundamentals (AZ-900)</div>
+          <div><strong>Cloud:</strong> Microsoft Azure</div>
+          <div><strong>DevOps:</strong> Azure DevOps, Jenkins, CI/CD</div>
+          <div><strong>Containers:</strong> Docker, Kubernetes, AKS, ACR</div>
+          <div><strong>IaC:</strong> Terraform</div>
+          <div><strong>Language:</strong> English — C2 Proficient</div>
         </div>
+      </aside>
+    </div>
+  </header>
 
-    </header>
-
-
-    <!-- About -->
+  <main>
     <section id="about">
-
-        <h2>About Me</h2>
-
-        <p>
-            I am an Azure Cloud and DevOps professional with experience in Azure
-            administration, systems support and cloud troubleshooting. I am also
-            Microsoft Certified: Azure Fundamentals (AZ-900).
-        </p>
-
-        <p>
-            My professional experience includes Azure Virtual Machines, Storage Accounts,
-            Resource Groups, Microsoft Entra ID, RBAC, Azure Monitor, Virtual Networks,
-            subnets, Network Security Groups and Azure CLI, together with day-to-day
-            systems administration and user support.
-        </p>
-
-        <p>
-            Alongside my professional experience, I have completed practical DevOps
-            projects using Azure DevOps, Docker, Kubernetes (AKS), Terraform, Jenkins,
-            Git, Linux, Azure Container Registry, Azure App Service, SonarCloud,
-            Trivy and Snyk.
-        </p>
-
-        <p>
-            I have built and troubleshot CI/CD pipelines, containerised applications,
-            provisioned Azure infrastructure using Terraform and worked with application
-            deployments to Azure App Service and Azure Kubernetes Service.
-        </p>
-
-    </section>
-
-
-    <!-- Skills -->
-    <section id="skills" class="grey-section">
-
-        <h2>Technical Skills</h2>
-
-        <div class="skills-grid">
-
-            <div class="skill-card">
-                <h3>Azure Cloud</h3>
-                <p>Microsoft Azure</p>
-                <p>Azure Virtual Machines</p>
-                <p>Storage Accounts</p>
-                <p>Resource Groups</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>Identity & Monitoring</h3>
-                <p>Microsoft Entra ID</p>
-                <p>RBAC</p>
-                <p>Azure Monitor</p>
-                <p>Resource Health</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>Networking</h3>
-                <p>Virtual Networks</p>
-                <p>Subnets</p>
-                <p>Network Security Groups</p>
-                <p>Basic Connectivity Troubleshooting</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>DevOps & CI/CD</h3>
-                <p>Azure DevOps</p>
-                <p>Jenkins</p>
-                <p>CI/CD Pipelines</p>
-                <p>YAML Pipelines</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>Containers</h3>
-                <p>Docker</p>
-                <p>Kubernetes</p>
-                <p>Azure Kubernetes Service (AKS)</p>
-                <p>Azure Container Registry (ACR)</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>Infrastructure as Code</h3>
-                <p>Terraform</p>
-                <p>Terraform Modules</p>
-                <p>Init / Validate / Plan / Apply</p>
-                <p>Remote State</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>Source Control</h3>
-                <p>Git</p>
-                <p>GitHub</p>
-                <p>Azure Repos</p>
-                <p>Branches & Pull Requests</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>Security & Quality</h3>
-                <p>SonarCloud</p>
-                <p>SonarQube</p>
-                <p>Snyk</p>
-                <p>Trivy</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>Systems & Tools</h3>
-                <p>Windows</p>
-                <p>Linux</p>
-                <p>Azure CLI</p>
-                <p>Maven</p>
-            </div>
-
-            <div class="skill-card">
-                <h3>Professional Skills</h3>
-                <p>Troubleshooting</p>
-                <p>Documentation</p>
-                <p>User Support</p>
-                <p>Problem Solving</p>
-            </div>
-
+      <div class="container">
+        <div class="section-heading">
+          <h2>About Me</h2>
+          <p>Cloud administration, systems support and practical DevOps engineering.</p>
         </div>
-
-    </section>
-
-
-    <!-- Certifications -->
-    <section id="certifications">
-
-        <h2>Certification</h2>
-
-        <div class="cert-card">
-
-            <h3>Microsoft Certified: Azure Fundamentals</h3>
-
-            <p>
-                Certification: AZ-900
-            </p>
-
-            <p>
-                Microsoft | 2026
-            </p>
-
+        <div class="card">
+          <p>
+            I work across Microsoft Azure administration, user and access management,
+            cloud monitoring, networking and troubleshooting, alongside hands-on DevOps
+            engineering projects. My experience includes Azure Virtual Machines, Storage
+            Accounts, Resource Groups, Microsoft Entra ID, RBAC, VNets, subnets, NSGs,
+            Azure Monitor and Azure CLI. I also build and troubleshoot CI/CD workflows
+            using Azure DevOps and Jenkins, containerise applications with Docker, deploy
+            to Azure App Service and AKS, and provision Azure infrastructure using Terraform.
+          </p>
         </div>
-
+      </div>
     </section>
 
-
-    <!-- Projects -->
-    <section id="projects" class="grey-section">
-
-        <h2>Hands-On Cloud & DevOps Projects</h2>
-
-        <p class="section-intro">
-            Practical projects demonstrating CI/CD, containerisation, Infrastructure
-            as Code, Kubernetes and cloud deployment skills.
-        </p>
-
-
-        <div class="projects-grid">
-
-            <!-- Project 1 -->
-            <div class="project-card">
-
-                <h3>Azure DevOps CI/CD – .NET Application</h3>
-
-                <p>
-                    Built a YAML-based CI/CD pipeline for a .NET application using
-                    Azure DevOps. Containerised the application using Docker and pushed
-                    images to Azure Container Registry.
-                </p>
-
-                <p>
-                    Deployed the application to Azure App Service, integrated SonarCloud
-                    for code-quality analysis and troubleshot pipeline, service connection
-                    and deployment issues.
-                </p>
-
-                <p class="tech">
-                    Azure DevOps • YAML • Docker • ACR • App Service • SonarCloud
-                </p>
-
-                <a href="https://github.com/meenakshikandwal194-del"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    View on GitHub →
-                </a>
-
-            </div>
-
-
-            <!-- Project 2 -->
-            <div class="project-card">
-
-                <h3>Terraform Infrastructure as Code – Azure & AKS</h3>
-
-                <p>
-                    Developed reusable Terraform modules to provision Azure infrastructure
-                    including AKS, Virtual Network and Azure Container Registry.
-                </p>
-
-                <p>
-                    Implemented Terraform Init, Validate, Plan and Apply stages through
-                    Azure DevOps pipelines and worked with remote state and Azure service
-                    connections.
-                </p>
-
-                <p class="tech">
-                    Terraform • Azure DevOps • AKS • VNet • ACR
-                </p>
-
-                <a href="https://github.com/meenakshikandwal194-del"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    View on GitHub →
-                </a>
-
-            </div>
-
-
-            <!-- Project 3 -->
-            <div class="project-card">
-
-                <h3>Jenkins CI/CD – Spring Boot to AKS</h3>
-
-                <p>
-                    Built a Jenkins CI/CD workflow for a Spring Boot application using
-                    Maven, Docker and Git.
-                </p>
-
-                <p>
-                    Integrated Trivy vulnerability scanning, built container images and
-                    worked with deployment workflows targeting Azure Kubernetes Service.
-                </p>
-
-                <p class="tech">
-                    Jenkins • Maven • Docker • ACR • AKS • Trivy • Git
-                </p>
-
-                <a href="https://github.com/meenakshikandwal194-del"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    View on GitHub →
-                </a>
-
-            </div>
-
-
-            <!-- Project 4 -->
-            <div class="project-card">
-
-                <h3>Node.js Azure DevOps Pipeline</h3>
-
-                <p>
-                    Built an Azure DevOps CI/CD pipeline for a Node.js application
-                    using npm and Docker and integrated Snyk vulnerability scanning.
-                </p>
-
-                <p>
-                    Worked with Azure service connections, container/application
-                    deployment and troubleshooting of pipeline, security-scanning
-                    and deployment issues.
-                </p>
-
-                <p class="tech">
-                    Node.js • Azure DevOps • Docker • Snyk • Azure
-                </p>
-
-                <a href="https://github.com/meenakshikandwal194-del"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    View on GitHub →
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- Professional Experience -->
     <section id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Experience</h2>
+          <p>Azure cloud administration, system administration and remote cloud engineering.</p>
+        </div>
 
-        <h2>Professional Experience</h2>
-
-        <div class="cert-card">
+        <div class="timeline">
+          <article class="card role">
             <h3>Azure Cloud Administrator</h3>
+            <div class="company">Saigates Ltd — Wolverhampton, England</div>
+            <div class="date">Apr 2025 – Present</div>
+            <ul>
+              <li>Support administration of Azure resources including VMs, Storage Accounts, Resource Groups and basic networking.</li>
+              <li>Manage Microsoft Entra ID users, groups and RBAC permissions for secure resource access.</li>
+              <li>Monitor Azure resources through Azure Portal and Azure Monitor, investigating basic alerts and availability issues.</li>
+              <li>Support Azure Storage, VNet, subnet and NSG configuration and troubleshooting.</li>
+              <li>Use Azure Portal and Azure CLI for routine administration, resource checks and access management.</li>
+              <li>Resolve user access and cloud-related support requests and maintain technical documentation.</li>
+            </ul>
+          </article>
 
-            <p><strong>Saigates Ltd – Wolverhampton, England</strong></p>
-            <p>April 2025 – Present</p>
-
-            <p>
-                Support administration of Azure resources including Virtual Machines,
-                Storage Accounts, Resource Groups and basic networking. Manage Microsoft
-                Entra ID users, groups and RBAC permissions for secure resource access.
-                Monitor Azure resources through Azure Portal and Azure Monitor and support
-                Azure Storage, VNet, subnet and NSG configuration and troubleshooting.
-                Use Azure Portal and Azure CLI for routine administration, resource checks
-                and access management, while resolving user access and cloud-related
-                support requests and maintaining technical documentation.
-            </p>
-        </div>
-
-
-        <div class="cert-card">
+          <article class="card role">
             <h3>System Administrator</h3>
+            <div class="company">M.R. Dental Limited — Woking, Surrey</div>
+            <div class="date">Jul 2022 – Nov 2024</div>
+            <ul>
+              <li>Provided day-to-day IT support, resolving hardware, software, login and connectivity issues.</li>
+              <li>Managed user accounts, permissions, email access and password resets.</li>
+              <li>Supported Windows devices, printers, shared drives and office IT equipment.</li>
+              <li>Assisted with software installation, updates, system maintenance and basic network troubleshooting.</li>
+              <li>Maintained IT documentation, access records and supported backup and security procedures.</li>
+            </ul>
+          </article>
 
-            <p><strong>M.R. Dental Limited – Woking, Surrey</strong></p>
-            <p>July 2022 – November 2024</p>
-
-            <p>
-                Provided day-to-day IT support for hardware, software, login and
-                connectivity issues. Managed user accounts, permissions, email access
-                and password resets. Supported Windows devices, printers, shared drives
-                and office IT equipment and assisted with software installation, updates,
-                system maintenance and basic network troubleshooting. Maintained IT
-                documentation, access records and supported backup and security procedures.
-            </p>
-        </div>
-
-
-        <div class="cert-card">
+          <article class="card role">
             <h3>Azure Cloud Engineer (Remote)</h3>
-
-            <p><strong>GKG Web Services Inc – United States</strong></p>
-            <p>December 2020 – July 2022</p>
-
-            <p>
-                Supported Azure Virtual Machines, Storage Accounts, Resource Groups and
-                Virtual Networks. Managed Microsoft Entra ID users, groups and RBAC
-                permissions. Assisted with VNet, subnet, NSG and connectivity configuration,
-                monitored Azure resources and alerts using Azure Monitor and used Azure
-                Portal and Azure CLI for routine administration and troubleshooting.
-            </p>
+            <div class="company">GKG Web Services Inc — United States</div>
+            <div class="date">Dec 2020 – Jul 2022</div>
+            <ul>
+              <li>Supported Azure VMs, Storage Accounts, Resource Groups and Virtual Networks.</li>
+              <li>Managed Microsoft Entra ID users, groups and RBAC permissions.</li>
+              <li>Assisted with VNet, subnet, NSG and connectivity configuration.</li>
+              <li>Monitored Azure resources and alerts using Azure Monitor.</li>
+              <li>Used Azure Portal and Azure CLI for routine administration and troubleshooting.</li>
+            </ul>
+          </article>
         </div>
-
+      </div>
     </section>
 
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Projects</h2>
+          <p>Hands-on Azure and DevOps projects demonstrating CI/CD, containers, IaC and security tooling.</p>
+        </div>
 
-    <!-- Education -->
-    <section id="education" class="grey-section">
+        <div class="grid grid-2">
+          <article class="card">
+            <h3>Azure DevOps CI/CD – .NET Application</h3>
+            <div class="meta">Azure DevOps • YAML • Docker • ACR • Azure App Service • SonarCloud</div>
+            <ul>
+              <li>Built a YAML-based CI/CD pipeline for a .NET application using Azure DevOps.</li>
+              <li>Containerised the application using Docker and pushed images to Azure Container Registry (ACR).</li>
+              <li>Deployed the application to Azure App Service and integrated SonarCloud for code-quality analysis.</li>
+              <li>Troubleshot pipeline, service connection and deployment issues.</li>
+            </ul>
+          </article>
 
-        <h2>Education</h2>
+          <article class="card">
+            <h3>Terraform Infrastructure as Code – Azure/AKS</h3>
+            <div class="meta">Terraform • Azure DevOps • AKS • VNet • ACR</div>
+            <ul>
+              <li>Developed reusable Terraform modules to provision Azure infrastructure including AKS, VNet and ACR.</li>
+              <li>Implemented Terraform Init, Validate, Plan and Apply stages through Azure DevOps pipelines.</li>
+              <li>Worked with remote Terraform state, Azure service connections and AKS infrastructure provisioning.</li>
+            </ul>
+          </article>
 
-        <div class="cert-card">
+          <article class="card">
+            <h3>Jenkins CI/CD – Spring Boot to AKS</h3>
+            <div class="meta">Jenkins • Maven • Docker • ACR • AKS • Trivy • Git</div>
+            <ul>
+              <li>Built a Jenkins CI/CD workflow for a Spring Boot application using Maven, Docker and Git.</li>
+              <li>Integrated Trivy vulnerability scanning into the CI/CD pipeline.</li>
+              <li>Built container images and worked with deployment workflows targeting Azure Kubernetes Service (AKS).</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Node.js Azure DevOps Pipeline</h3>
+            <div class="meta">Node.js • Azure DevOps • Snyk • Docker • Azure</div>
+            <ul>
+              <li>Built an Azure DevOps CI/CD pipeline for a Node.js application using npm and Docker.</li>
+              <li>Integrated Snyk vulnerability scanning into the pipeline.</li>
+              <li>Worked with Azure service connections and container/application deployment.</li>
+              <li>Troubleshot pipeline, security-scanning and deployment issues.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Technical Skills</h2>
+          <p>Technologies reflected across my experience and project work.</p>
+        </div>
+
+        <div class="card">
+          <div class="tags">
+            <span class="tag">Microsoft Azure</span>
+            <span class="tag">Azure Portal</span>
+            <span class="tag">Azure CLI</span>
+            <span class="tag">Azure DevOps</span>
+            <span class="tag">Microsoft Entra ID</span>
+            <span class="tag">RBAC</span>
+            <span class="tag">Azure Monitor</span>
+            <span class="tag">Virtual Machines</span>
+            <span class="tag">Storage Accounts</span>
+            <span class="tag">Resource Groups</span>
+            <span class="tag">VNet</span>
+            <span class="tag">Subnets</span>
+            <span class="tag">NSG</span>
+            <span class="tag">Azure App Service</span>
+            <span class="tag">ACR</span>
+            <span class="tag">AKS</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Kubernetes</span>
+            <span class="tag">Terraform</span>
+            <span class="tag">Jenkins</span>
+            <span class="tag">Git</span>
+            <span class="tag">Linux</span>
+            <span class="tag">YAML</span>
+            <span class="tag">CI/CD</span>
+            <span class="tag">Infrastructure as Code</span>
+            <span class="tag">SonarCloud</span>
+            <span class="tag">Trivy</span>
+            <span class="tag">Snyk</span>
+            <span class="tag">Maven</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">.NET</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="certifications">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Certification</h2>
+        </div>
+        <div class="card">
+          <h3>Microsoft Certified: Azure Fundamentals (AZ-900)</h3>
+          <div class="meta">Microsoft | 2026</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Education</h2>
+        </div>
+
+        <div class="grid grid-2">
+          <article class="card">
             <h3>Level 7 Postgraduate Diploma in International Business and Management</h3>
-            <p>University for the Creative Arts – Epsom, Surrey, UK</p>
-            <p>2022</p>
-        </div>
+            <div class="meta">University for the Creative Arts — Epsom, Surrey, UK | 2022</div>
+          </article>
 
-        <div class="cert-card">
+          <article class="card">
             <h3>Bachelor of Commerce (BCom) – Honours</h3>
-            <p>Business, Accounts and Finance</p>
-            <p>Hans Raj College, Delhi University – New Delhi, India</p>
-            <p>2013</p>
+            <div class="meta">Business, Accounts and Finance</div>
+            <p>Hans Raj College, Delhi University — New Delhi, India | 2013</p>
+          </article>
         </div>
-
+      </div>
     </section>
 
-
-    <!-- Career Goals -->
-    <section id="career" class="career">
-
-        <h2>What I Am Looking For</h2>
-
-        <p>
-            I am interested in Azure Cloud, Cloud Engineering, DevOps, Infrastructure,
-            Platform Support and Cloud Operations opportunities where I can contribute
-            my professional cloud administration experience and continue developing
-            my technical skills.
-        </p>
-
-        <div class="roles">
-
-            <span>Azure Cloud Engineer</span>
-            <span>Junior DevOps Engineer</span>
-            <span>Cloud Administrator</span>
-            <span>Azure Support Engineer</span>
-            <span>Cloud Support Engineer</span>
-            <span>Infrastructure Engineer</span>
-            <span>Platform Support Engineer</span>
-            <span>Cloud Operations Engineer</span>
-
+    <section id="additional">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Additional Information</h2>
         </div>
 
+        <div class="grid grid-2">
+          <article class="card">
+            <h3>Language</h3>
+            <p>English — C2 Proficient</p>
+          </article>
+
+          <article class="card">
+            <h3>Interests</h3>
+            <p>Cloud Computing • DevOps Automation • Hands-on Technology Projects • Continuous Learning • Yoga & Wellness</p>
+          </article>
+        </div>
+      </div>
     </section>
 
-
-    <!-- Contact -->
     <section id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Contact</h2>
+          <p>Connect with me for Azure Cloud, DevOps and infrastructure opportunities.</p>
+        </div>
 
-        <h2>Let's Connect</h2>
+        <div class="contact-grid">
+          <a class="contact-item" href="mailto:devopsmeenakshi@gmail.com">
+            <span>Email</span>
+            devopsmeenakshi@gmail.com
+          </a>
 
-        <p>
-            I am open to Azure Cloud, DevOps, Infrastructure and Platform Support
-            opportunities across the UK and willing to relocate.
-        </p>
+          <a class="contact-item" href="tel:+4407391675771">
+            <span>Phone</span>
+            +44 07391675771
+          </a>
 
-        <p>
-            Email:
-            <a href="mailto:devopsmeenakshi@gmail.com">
-                devopsmeenakshi@gmail.com
-            </a>
-        </p>
+          <a class="contact-item" href="https://www.linkedin.com/in/meenakshi-250149420/" target="_blank" rel="noopener">
+            <span>LinkedIn</span>
+            linkedin.com/in/meenakshi-250149420/
+          </a>
 
-        <p>
-            Phone: +44 07391675771
-        </p>
+          <a class="contact-item" href="https://github.com/meenakshikandwal194-del" target="_blank" rel="noopener">
+            <span>GitHub</span>
+            github.com/meenakshikandwal194-del
+          </a>
 
-        <p>
-
-            <a href="https://www.linkedin.com/in/meenakshi-250149420/"
-               target="_blank"
-               rel="noopener noreferrer">
-                LinkedIn
-            </a>
-
-            |
-
-            <a href="https://github.com/meenakshikandwal194-del"
-               target="_blank"
-               rel="noopener noreferrer">
-                GitHub
-            </a>
-
-            |
-
-            <a href="MeenakshiJuniorDevopsEngineerCV.pdf"
-               target="_blank"
-               rel="noopener noreferrer">
-                Resume
-            </a>
-
-        </p>
-
+          <a class="contact-item" href="MeenakshiJuniorDevopsEngineerCV.pdf" target="_blank" rel="noopener">
+            <span>Resume</span>
+            View Latest CV
+          </a>
+        </div>
+      </div>
     </section>
+  </main>
 
-
-    <!-- Footer -->
-    <footer>
-
-        <p>
-            © 2026 Meenakshi Kandwal | Cloud & DevOps Portfolio
-        </p>
-
-    </footer>
-
-
+  <footer>
+    <div class="container">
+      © 2026 Meenakshi Kandwal • Azure Cloud & DevOps Portfolio
+    </div>
+  </footer>
 </body>
-
 </html>
